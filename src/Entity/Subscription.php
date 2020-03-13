@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Exception\DatabaseException;
+
 /**
  * Entity to manipulate person's data.
  *

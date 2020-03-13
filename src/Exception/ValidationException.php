@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Exception;
 
-/**
-     * Class ValidationException.
+	/**
+     * Class ValidationException
      */
     class ValidationException extends \Exception
     {

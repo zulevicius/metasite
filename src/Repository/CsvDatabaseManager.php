@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\DatabaseException;
+use App\Exception\DatabaseException;
 use App\Entity\EntityInterface;
 
 /**

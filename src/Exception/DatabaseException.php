@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Exception;
 
-/**
-     * Class DatabaseException.
+	/**
+     * Class DatabaseException
      */
     class DatabaseException extends \Exception
     {
