@@ -38,7 +38,7 @@ class CsvDatabaseManager implements DatabaseInterface
      */
     public function __construct(string $filePath, string $entityClass)
     {
-        $this->dbFile = __DIR__ . '\\' . $filePath;
+        $this->dbFile = __DIR__ . '/' . $filePath;
         $this->class = $entityClass;
     }
 
