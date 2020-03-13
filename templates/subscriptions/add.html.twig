@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add subscription{% endblock %}
+
+{% block body %}
+
+<h1 class="h3 mb-3 font-weight-normal">Add subscription</h1>
+
+{{ form_start(form) }}
+  {{ form_row(form.email, { 'attr' : { 'class': 'form-control' } }) }}
+  {{ form_row(form.fullname, { 'attr' : { 'class': 'form-control' } }) }}
+
+  {% for category in categories %}
+    <div class="checkboxes" style="margin-top: 10px;">
+      <label for="{{ category.title }}">
+        <input type="checkbox" name="categories[]" value="{{ category.title }}" id="category_{{ category.title }}" />
+        <span>{{ category.title }}</span>
+      </label>
+    </div>
+  {% endfor %}
+
+  <button class="btn btn-lg btn-primary mt-3" type="submit">Submit</button>
+{{ form_end(form) }}
+
+{% endblock %}

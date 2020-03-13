@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Subscriptions{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block body %}
+  <a href="{{ path('add_subscription') }}" class="btn btn-primary mb-3">Add new</a>
+  {% if subscriptions %}
+    <table id="subscriptions" class="display nowrap dataTable dtr-inline collapsed">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Registration date</th>
+          <th>Categories</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for subscription in subscriptions %}
+          <tr>
+            <td>{{ subscription.email }}</td>
+            <td>{{ subscription.fullName }}</td>
+            <td>{{ subscription.registrationDate }}</td>
+            <td>{{ subscription.categories|replace({'|': ' | '}) }}</td>
+            <td>
+              <a href="{{ path('edit_subscription', { id: subscription.id }) }}" class="btn btn-dark">Edit</a>
+              <a href="{{ path('delete_subscription', { id: subscription.id }) }}" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No subscriptions to display</p>
+  {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+  $('#subscriptions').DataTable();
+} );
+</script>
+{% endblock %}
